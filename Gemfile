@@ -1,0 +1,6 @@
+source "http://rubygems.org"
+gem "eventmachine"
+gem "librevox"
+gem "rspec", :require => "spec"
+gem "rake"
+gem "em-spec"
