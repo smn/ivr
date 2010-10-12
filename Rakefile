@@ -1,36 +1,32 @@
 $:<< File.dirname(__FILE__)
 require 'rubygems'
 require 'bundler/setup'
-require 'spec/rake/spectask'
+require 'rspec/core/rake_task'
 require 'librevox'
+
+APP_ROOT = File.dirname(__FILE__)
 
 task :default => [:spec]
 
 desc "Run all tests"
-Spec::Rake::SpecTask.new('spec') do |t|
-  t.spec_opts = ['--format', 'specdoc', '--color']
-  t.spec_files = FileList['test/spec/*.rb']
+RSpec::Core::RakeTask.new('spec') do |t|
+  t.rspec_opts = ['--format', 'specdoc', '--color']
+  t.pattern = 'spec/**/*_spec.rb'
 end
 
 namespace :ivr do
   desc "Start the IVR experiment"
   task :start do |t|
-    EM.run do
-      trap("INT") { EM.stop }
-      trap("TERM") { EM.stop }
-      Librevox.start IVR
-    end
+    Librevox.start IVR
   end
 end
 
 class IVR < Librevox::Listener::Outbound
   def session_initiated
     answer
-    wave_file = "/Users/sdehaan/Documents/Repositories/vumi_ivr/sample.wav"
-    digit = play_and_get_digits wave_file, wave_file
-    puts "User pressed #{digit}"
+    sleep 5000
+    file = "#{APP_ROOT}/sounds/sample.8b.wav"
+    playback file
     hangup
   end
 end
-
-

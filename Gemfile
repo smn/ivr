@@ -1,6 +1,6 @@
 source "http://rubygems.org"
 gem "eventmachine"
-gem "librevox"
-gem "rspec", :require => "spec"
+gem "librevox", :git => "http://github.com/ichverstehe/librevox.git"
+gem "rspec"
 gem "rake"
 gem "em-spec"

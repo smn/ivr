@@ -1,11 +1,27 @@
+GIT
+  remote: http://github.com/ichverstehe/librevox.git
+  revision: 3867b0f09fc96b70736bad0772ae34f8a348b28a
+  specs:
+    librevox (0.3)
+      eventmachine (~> 0.12.10)
+
 GEM
   remote: http://rubygems.org/
   specs:
+    diff-lcs (1.1.2)
     em-spec (0.2.1)
     eventmachine (0.12.10)
-    librevox (0.2.1)
     rake (0.8.7)
-    rspec (1.3.0)
+    rspec (2.0.0)
+      rspec-core (= 2.0.0)
+      rspec-expectations (= 2.0.0)
+      rspec-mocks (= 2.0.0)
+    rspec-core (2.0.0)
+    rspec-expectations (2.0.0)
+      diff-lcs (>= 1.1.2)
+    rspec-mocks (2.0.0)
+      rspec-core (= 2.0.0)
+      rspec-expectations (= 2.0.0)
 
 PLATFORMS
   ruby
@@ -13,6 +29,6 @@ PLATFORMS
 DEPENDENCIES
   em-spec
   eventmachine
-  librevox
+  librevox!
   rake
   rspec
