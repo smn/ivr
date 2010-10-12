@@ -28,13 +28,12 @@ end
 def say text, options={}
   voice = options[:voice] || "Alex"
   md5 = Digest::MD5.hexdigest(text)
-  file = "#{APP_ROOT}/sounds/cache/#{voice}-#{md5}.wav"
+  file = "#{SOUND_ROOT}/cache/#{voice}-#{md5}.wav"
   if not File.exists?(file)
     # say will trip if the output file is not 'wave'
     # but freeswitch will trip if it is. First write it with the wave suffix
     # then rename it to the wav suffix
     `say -v #{voice} -o #{file}e "#{text}" && mv #{file}e #{file}`
-    puts "generated file #{file}"
   end
   file
 end
@@ -42,14 +41,7 @@ end
 class IVR < Librevox::Listener::Outbound
   def session_initiated
     answer
-    # application "sleep", "5000"
-    # file = "#{APP_ROOT}/sounds/sample.8b.wav"
-    # playback file
-    # set "tts_engine", "flite"
-    # set "tts_voice", "slt"
-    # application "speak", "Hello World! Welcome to Voomi, Praykelt's messaging system."
-    playback say("Hello World! Welcome to Voomi, Praykelt's messaging system.")
+    playback say("Most people recognize me by my voice")
     hangup
-    puts "hung up..."
   end
 end
