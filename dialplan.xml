@@ -1,7 +1,7 @@
-<extension name="Inbound-4427073"> 
-  <condition field='destination_number' expression='^4427073$'>
+<extension name="4427073"> 
+  <condition field="destination_number" expression="^4427073">
     <action application="set" data="continue_on_fail=true" />
     <action application="set" data="call_timeout=5" />
-    <action application="socket" data="127.0.0.1:8084 async full"/> 
+    <action application="socket" data="127.0.0.1:8084 sync full"/> 
   </condition> 
 </extension>

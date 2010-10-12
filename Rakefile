@@ -24,7 +24,7 @@ end
 class IVR < Librevox::Listener::Outbound
   def session_initiated
     answer
-    sleep 5000
+    application "sleep", "5000"
     file = "#{APP_ROOT}/sounds/sample.8b.wav"
     playback file
     hangup
