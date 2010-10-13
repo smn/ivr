@@ -1,5 +1,6 @@
 source "http://rubygems.org"
 gem "eventmachine"
+gem "amqp"
 gem "librevox", :git => "http://github.com/ichverstehe/librevox.git"
 gem "rspec"
 gem "rake"

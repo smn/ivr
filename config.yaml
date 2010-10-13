@@ -1,0 +1,18 @@
+# default details Librevox Outbound listener
+freeswitch:
+    host: '127.0.0.1'
+    port: 8084
+    auth: 
+
+# RabbitMQ default login details
+amqp:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    vhost: /
+    exchange: exchange
+    outbound_queue: ivr.outbound
+    outbound_key: outbound.key
+    inbound_key: inbound.key
+    
