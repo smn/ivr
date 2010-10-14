@@ -8,6 +8,23 @@ SESSION_END = 3
 
 module Vumi
   class IVR < Librevox::Listener::Outbound
+    
+    class Menu
+      attr_accessor :text, :options
+      
+      def self.from_json string
+        json = JSON.load string
+        new.tap do |menu|
+          menu.text = json["text"]
+          menu.options = json["options"]
+        end
+      end
+      
+      def to_json(*args)
+        {:text => text, :options => options}.to_json(*args)
+      end
+    end
+    
     include Vumi::Say
     include Vumi::Amqp
     
